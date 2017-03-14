@@ -5,9 +5,16 @@ header{
     position: relative;
     z-index: 100;
 }
-
+.welcome{
+    background: url(../img/1rst%20demo%20city.jpeg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 section{
-    background: rgba(255,0,0,0.3);
+    background: rgba(0,0,255,0.3);
     position: absolute;
     top: 0;
     left: 0;
@@ -23,6 +30,13 @@ section{
 }
 #saludo h1{
     margin-bottom:120px;
+    color: #fff;
+}
+.welcome h1{
+    color:#fff;
+}
+.formulario{
+    background: rgba(0,0,0,0.3);
 }
 .content{
     display: table-cell;
@@ -32,4 +46,20 @@ section{
 .form{
     /*background: rgba(0,0,0,0.3);*/
 }
-
+.latabla td{
+    border: thin solid #fff;
+    font-size: 30px;
+    height: 120px;
+    width: 120px;
+}
+.latabla{
+    margin: auto;
+}
+.gamers{
+    display: table;
+}
+.gamers ul{
+    vertical-align: middle;
+    display: table-cell;
+    padding: 200px 0;
+}

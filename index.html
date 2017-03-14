@@ -9,35 +9,35 @@
 </head>
 <body class="text-center">
 <!---------------------------------------------EL HEADER----------------------------------->
-<header>
-	<nav class="navbar">
-          <div class="container-fluid">
-            <!-------------------Button desplegable----------------------------------------->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <!----------------menu---------------------------------------------------->
-            <div class="collapse navbar-collapse" id="navbar-1">
-                <ul class="nav navbar-nav navbar-right"  aria-expanded="false">
-                    <li class="active"><a href="#">Inicio</a></li>
-                    <li><a href="#">Historial</a></li>
-                </ul>  
-            </div>
-        </div>
-    </nav> 	
+<header id="initializing">
+	<header>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a id="btn_initial">Inicio</a></li>
+					<li><a id="btn-historial">Historial</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </header>
 <!----------------menu---------------------------------------------------->
-<section id="welcome" class="visible">
+<section id="welcome" class="visible welcome">
 	<div class="content">
 		<div class="container">
-
-			<h1>Bienvenido a Gato Loco!</h1>
-			<button id="btn_welcome" class="btn btn-default">Iniciar juego</button>
+        
+			<h1>Welcome to Mad Monstercat!</h1>
+			<button id="btn_welcome" class="btn btn-default">Play GAME</button>
 
 		</div>
 	</div>
@@ -48,14 +48,25 @@
 		<div class="container">
 		    <div class="row">
             <h3>Ingresen sus nombres</h3>
-		        <div class="col-md-6 col-md-offset-3">
-                    <div class="form">
-                        <p>Ingrese el nombre del jugador 1 <input class="form-control" type="text"></p>
-                    <p>Ingrese el nombre del jugador 2 <input class="form-control" type="text"></p>
+		        <div class="col-md-6 col-md-offset-3 formulario">
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-8 control-label">Ingrese el nombre del jugador 1</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="gamer1" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-8 control-label">Ingrese el nombre del jugador 2</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="gamer2" placeholder="Name">
+                        </div>
+                      </div>
+                    </form>
                     <p class="text-center">
                         <button id="btn_gamer" class="btn bn-default">Comenzar</button>
                     </p>      
-                    </div>
+                    
 		           
 		        </div>
 		    </div>
@@ -68,10 +79,12 @@
 <section id="game">
 	<div class="content">
 		<div class="container">
-			<h1>Gato Loco</h1>
-                <div class="col-md-8 col-sm-8 col-xs-8">
-                   <h2>Turno de holaaa<span id="turn">Mi</span></h2>
-                    <table id="gato" class="latabla" cellspacing="0">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8" cellspacing="0">
+                   <h2>Turno de<span id="turn">Mi</span></h2>
+                   <div id="respuesta"></div>
+                    <br>
+                    <table id="gato" class="latabla">
                         <tr>
                             <td id="c1" class="gato"></td>
                             <td id="c2" class="gato"></td>
@@ -88,48 +101,52 @@
                             <td id="c9" class="gato"></td>
                         </tr>
                     </table>
-            <!--<div class="col-md-6 col-xs-6">
-                <div id="respuesta"></div>
-            </div>
-            <br>
-            <div class="col-md-6 col-xs-6">
-                <button class="btn btn-default" id="reset">RESET</button>
-            </div>-->    
+                    <button class="btn btn-default" id="reset">RESET</button>      
                 </div>
-                <div class="col-md-4 col-sm-4 col-xs-4">
-                   <ul class="list-unstyled gamers">
-                    <li>Movimientos Emmanuel <span>2</span></li>   
-                    <li>Movimientos Irene <span>3</span></li>
+            
+                <div class="col-md-4 col-sm-4 col-xs-4 gamers">
+                    <ul class="list-unstyled">
+                        <li>Movimientos Emmanuel <span>2</span></li>
+                        <br>   
+                        <li>Movimientos Irene <span>3</span></li>
                     </ul>   
                 </div> 
+                <button id="btn_story">STORY</button>
+            </div>
 		</div>
 	</div>
 </section>
 
 <!----------------menu---------------------------------------------------->
-<section id="historial">
+<section id="story">
 	<div class="content">
 		<div class="container">
 			<h2>Historial</h2>
+			<ul id="list_games" class="list-group list-unstyled"></ul>
 		</div>
 	</div>
 </section>
 
 <!----------------------SECTION-GAME-------------------------------->
-<section class="juego text-center">
+<section  id="story_detail">
     <div class="content">
         <div class="container">
-            
-                  
+            <ul id="list_comments" class="list-unstyled"></ul>
+            <input type="text" class="form-control" id="name">
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <button id="btn_comment">Comment</button>      
         </div>    
     </div>
 </section>
 <!----------------------SCRIPT-------------------------------->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>   
-<!---<script src="js/jquery-3.1.1.min.js"></script>-->
-<script src="js/jquery.js"></script>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/game.js"></script>
+<script src="js/game.js"></script>      
+
 </body>
 </html>
