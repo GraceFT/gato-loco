@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a id="btn_initial">Inicio</a></li>
-                            <li><a >Historial</a></li>
+                            <li><a id="btn_story">Historial</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,14 +100,17 @@
                     <button class="btn btn-default" id="reset">RESET</button>      
                 </div>
             
-                <div class="col-md-4 col-sm-4 col-xs-4 gamers">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                   <h2>PLAYERS</h2>
                     <ul class="list-unstyled">
-                        <li>Movimientos Emmanuel <span>2</span></li>
+                        <li>Nombre1<span id="gaming1"></span></li>
                         <br>   
-                        <li>Movimientos Irene <span>3</span></li>
-                    </ul>   
+                        <li>Nombre2<span id="gaming2"></span></li>
+                        
+                    </ul>
+                     <div id="respuesta"></div>
+                    <!--<button class="btn" id="btn_story">STORY</button>-->   
                 </div> 
-                <button id="btn_story" class="btn_press">STORY</button>
             </div>
 		</div>
 	</div>
@@ -132,16 +135,15 @@
             <ul id="list_comments" class="list-unstyled"></ul>
         <form>
            <h3>SEND YOUR COMMENTS</h3>
+           <label for="">Name</label>
             <div class="form-group">
-                <label for="">Name</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" id="name">
                 </div> 
             </div>
-            
             <label for="">Comment</label>
             <div class="form-group">
-                <textarea name="content" id="content" cols="30" rows="10"></textarea>    
+                <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>    
             </div>
             <button id="btn_comment" class="btn_press">Send Comment</button>
         </form>      
