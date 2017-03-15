@@ -14,6 +14,7 @@ function init ()
     var celda= $('.gato');
     //console.log(celda);
     $('#gato').on('click',celda,onClickSpace);
+    
 }
 //combinaciones de jugadas
 function ganaJugador(letra){
@@ -41,7 +42,7 @@ function onClickSpace(evento)
     //posicion a marcar el -1 es porque las posiciones comienzan en cero 
     
     var celdas= evento.target;
-    //celdas.off('click',celda,onClickSpace);
+    //console.log(celda);
     var idceldas =  evento.target.id;
     
     var celdaAMarcar = idceldas[1]-1;
@@ -51,25 +52,26 @@ function onClickSpace(evento)
     //TURNO X, turnos impares;
     if(queturno==1)
         {
-            celdas.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>'//'<span style="color:#fff;">"X"</span>';
-            //celdas.css('background','#Ec673a');
+            celdas.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>';
             arregloGato[celdaAMarcar] = "X";
             ganaJugador("X");
             turnoX++;
+            //$('#gaming1').val()=turnoX;
+            
         }
     //TURNO X, turnos pares;
     else 
         {
             celdas.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive"></span>';
-            //celdas.css('background-color','#1c5f81');
             arregloGato[celdaAMarcar] = "O";
             ganaJugador("O");
             turnoO++;
+            //$('#gaming2').val()=turnoO;
         }
     console.log(turno,queturno,arregloGato);
     if(turno==9)
     {
-        alert("Empate");
+         $('#respuesta').html('<span>Es un empate</span>');;
         //console.log(window.location);
         //window.location.reload();
     }
@@ -80,6 +82,5 @@ function onClickSpace(evento)
 }
 function reseting(){
     arregloGato= "";
-    
     
 }

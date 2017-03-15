@@ -1,14 +1,12 @@
 $(document).ready(init);
 var currentSection= null;
 var currrentGameId;
-
+///+++++++++++++++++++++++++++++++++++++++INIT++++++++++++++++++++++++++++++++++++///
 function init()
 {
-    //alert("hola");
     currentSection= $('#welcome');
     $('#btn_welcome').click(onClickSaludo);
-    $('#btn_gamer').click(onClickGamer);
-    //console.log($('#btn_story'));
+    $('#btn_gamer').click(onClickGamer)
     $('#btn_story').click(onClickStory);
     $('#list_games').on('click','.btn', onClickBtnItemStory);
     $('#btn_comment').click(onClickBtnComment);
@@ -16,17 +14,22 @@ function init()
     //TweenMax.to('#btn-saludo', 2, {opacity:0, ease: Bonce.easeOut});
     //primer parametro es el identificador de donde quiero hacer mi animacion
     //elemento css
-    
+    $('#gamer1').keyup(validateName);
+    $('#gamer2').keyup(validateNames2);
 }
-function onClickBackInit(){
+///+++++++++++++++++++++++++++++++++++++++PAGINATION++++++++++++++++++++++++++++++++++++///
+function onClickBackInit()
+{
     goToSection('initializing');
 }
-function onClickBtnComment(){
-    //alert('hola');
+
+function onClickBtnComment()
+{
    sendComment(currrentGameId, $('#name').val(), $('#content').val());
 }
-function onClickBtnItemStory(){
-    //alert('holis');
+
+function onClickBtnItemStory()
+{
     var idGame= $(this).parent().data('idgame');
     console.log('idGame');
     //getSingleGame(idGame);
@@ -34,17 +37,28 @@ function onClickBtnItemStory(){
     getComments(idGame);
     currrentGameId= idGame;
 }
-function onClickSaludo(){
+
+function onClickSaludo()
+{
     goToSection('gamers');
 }
-function onClickGamer(){
-    goToSection('game');
+
+function onClickGamer()
+{
+    validateName();
+    validateNames2();
+    if(validateName() && validateNames2){
+         goToSection('game');
+    } 
 }
-function onClickStory(evt){
+
+function onClickStory(evt)
+{
     evt.preventDefault();
     goToSection('story');
     getHistorial();
 }
+///+++++++++++++++++++++++++++++++++++++++GO SECTIONS++++++++++++++++++++++++++++++++++++///
 function goToSection(_id)
 {
     currentSection.removeClass('visible');//display show
@@ -54,19 +68,21 @@ function goToSection(_id)
     currentSection=nextSection;
     //se le va a plicar a todas las pantallas
 }
+///+++++++++++++++++++++++++++++++++++++++GET HISTORIAL AJAX++++++++++++++++++++++++++++++++++++///
 function getHistorial(){
     $.ajax({
         url:'http://test-ta.herokuapp.com/games'
         //en la consola en network se puede visualizar todo lo que se tiene.
     }).done(function(_data){
         //console.log(_data);
-        drawStory(_data);
+        drawHistory(_data);
     });
     //si falla bloquea.
 }
 //una fucnion que recibe parametros obtiene una referencia al id de la lista juegos y luego uso el metodo html en el que esta la informaction
-
-function drawStory(_datos){
+///+++++++++++++++++++++++++++++++++++++++DRAWING HISTORY++++++++++++++++++++++++++++++++++++///
+function drawHistory(_datos)
+{
     //console.log(_datos);
     var list=$('#list_games');
     for(var i in _datos){
@@ -79,8 +95,9 @@ function drawStory(_datos){
     //try{}
     //error controlado
 }
-
-function getSingleGame(_idGame){
+///+++++++++++++++++++++++++++++++++++++++GET A SINGLE GAME++++++++++++++++++++++++++++++++++++///
+function getSingleGame(_idGame)
+{
     
     $.ajax({
         url:'http://test-ta.herokuapp.com/games/' + _idGame,
@@ -92,8 +109,9 @@ function getSingleGame(_idGame){
         console.log(_data);
     });
 }
-function getComments(_idGame){
-    
+///+++++++++++++++++++++++++++++++++++++++GETTING COMMENTS++++++++++++++++++++++++++++++++++++///
+function getComments(_idGame)
+{
     $.ajax({
         url:'http://test-ta.herokuapp.com/games/' + _idGame+'/comments',
         type: 'GET'
@@ -102,7 +120,9 @@ function getComments(_idGame){
         drawComments(_data);
     });
 }
-function drawComments(_datos){
+///+++++++++++++++++++++++++++++++++++++++DRAWING COMMENTS++++++++++++++++++++++++++++++++++++///
+function drawComments(_datos)
+{
     //console.log(_datos);
     var list=$('#list_comments');
     list.empty();
@@ -116,8 +136,10 @@ function drawComments(_datos){
     //try{}
     //error controlado
 }
-//funcion independeinte
-function sendComment(_idGame,_name,_content){
+
+///+++++++++++++++++++++++SENDING COMMENTS/SEPARATE FUNCTION++++++++++++++++++++++++++++++++++++///
+function sendComment(_idGame,_name,_content)
+{
      $.ajax({
         url:'http://test-ta.herokuapp.com/games/' + _idGame+'/comments',
         type: 'POST',
@@ -127,4 +149,29 @@ function sendComment(_idGame,_name,_content){
         getComments(_idGame);
         
     });
+}
+///+++++++++++++++++++++++++++++++++++++++VALIDATING FORM++++++++++++++++++++++++++++++++++++///
+function validateName(){
+    var valName=$("#gamer1");
+    var isName= false;
+    if(valName.val().length > 0 && valName.val().match(/^[a-zA-Z\s]*$/)){
+        $("#avise").html('<span style="color:white; font-size:11px; font-style:italic;">Validate Name</span>');
+        isName=true;
+    }else{
+        $("#avise").html('<span style="color:lightseagreen; font-size:11px; font-style:italic;">Complete with your name </span>');
+        isName=false;
+    }
+    return isName;
+}
+function validateNames2(){
+    var valNameSecond=$("#gamer2");
+    var isName= false;
+    if(valNameSecond.val().length > 0 && valNameSecond.val().match(/^[a-zA-Z\s]*$/)){
+        $("#avise2").html('<span style="color:white; font-size:11px; font-style:italic;">Validate Name</span>');
+        isName=true;
+    }else{
+        $("#avise2").html('<span style="color:lightseagreen; font-size:11px; font-style:italic;">Complete with your name </span>');
+        isName=false;
+    }
+    return isName;
 }
