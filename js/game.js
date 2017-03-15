@@ -6,15 +6,14 @@ var arregloGato = new Array(9);
 //var turn = $('#turn');
 //console.log(turn);
 var reset = $('#reset').click(reseting);
+var turnoX= 0;
+var turnoO = 0;
 
 function init ()
 {
     var celda= $('.gato');
     //console.log(celda);
     $('#gato').on('click',celda,onClickSpace);
-    //localStorage.getItem('gamer1');
-    //var 
-    //localStorage.getItem('gamer2');
 }
 //combinaciones de jugadas
 function ganaJugador(letra){
@@ -52,19 +51,20 @@ function onClickSpace(evento)
     //TURNO X, turnos impares;
     if(queturno==1)
         {
-            celdas.innerHTML="X";
+            celdas.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>'//'<span style="color:#fff;">"X"</span>';
             //celdas.css('background','#Ec673a');
             arregloGato[celdaAMarcar] = "X";
             ganaJugador("X");
+            turnoX++;
         }
     //TURNO X, turnos pares;
     else 
         {
-            celdas.innerHTML = "O";
+            celdas.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive"></span>';
             //celdas.css('background-color','#1c5f81');
             arregloGato[celdaAMarcar] = "O";
             ganaJugador("O");
-            
+            turnoO++;
         }
     console.log(turno,queturno,arregloGato);
     if(turno==9)
