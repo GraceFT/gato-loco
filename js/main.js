@@ -20,7 +20,7 @@ function init()
 ///+++++++++++++++++++++++++++++++++++++++PAGINATION++++++++++++++++++++++++++++++++++++///
 function onClickBackInit()
 {
-    goToSection('initializing');
+    goToSection('welcome');
 }
 
 function onClickBtnComment()
@@ -87,7 +87,7 @@ function drawHistory(_datos)
     var list=$('#list_games');
     for(var i in _datos){
         //console.log(_datos[i].winner_player);
-        var html = '<div class="col-md-11 col-sm-11 col-xs-11 list_games" data-idgame="'+ _datos[i].id+'" class="list-group-item"><span>Ganador: '+ _datos[i].winner_player+' le gano a '+ _datos[i].loser_player+'en '+ _datos[i].number_of_turns_to_win+'</span><button class=" btn btn_ver pull-right">See</button><div>';
+        var html = '<div class="col-md-11 col-sm-11 col-xs-11 list_games" data-idgame="'+ _datos[i].id+'" class="list-group-item"><span>Ganador: '+ _datos[i].winner_player+' le gano a '+ _datos[i].loser_player+' en '+ _datos[i].number_of_turns_to_win+'</span><button class=" btn btn_ver pull-right">See</button><div>';
         list.append(html); 
         //data-xx(para almacenar los datos que se necesitan);
         //dat-idgame

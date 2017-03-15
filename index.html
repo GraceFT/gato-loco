@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="img/favicon%20(2).ico">
 </head>
 <body class="elbody text-center">
-        <header id="initializing">
+        <header>
             <nav class="navbar navbar-inverse" role="navigation" style="border-color: transparent; color: white">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -131,39 +131,30 @@
 	</div>
 </section>
 
-<!----------------------SECTION-GAME-------------------------------->
+<!----------------------SECTION-comments-------------------------------->
 <section  id="story_detail">
     <div class="content">
         <div class="container">
             <ul id="list_comments" class="list-unstyled"></ul>
-        <form>
-           <h3>SEND YOUR COMMENTS</h3>
-           <div class="col-md-8 col-md-offset-4 formulario">
-                    <form class="form">
-                      <div class="form-group">
-                        <label class="col-sm-4 control-label" style="color:#fff;">Player 1</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="gamer1" placeholder="Name">
-                          <div id="avise"></div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-4 control-label" style="color:#fff;">Player 2</label>
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="gamer2" placeholder="Name">
-                          <div id="avise2"></div>
-                        </div>
-                      </div>
-                    </form>
-                    <p class="text-center">
-                        <button id="btn_gamer" class="btn_press">Start</button>
-                    </p>      
-		        </div>
-           
-            <button id="btn_comment" class="btn_press">Send Comment</button>
-        </form>      
-        </div>    
-    </div>
+               <h3>SEND YOUR COMMENTS</h3>
+                   <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 formulario">
+                        <form class="form">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-4 control-label" style="color:#fff;">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                             </div>
+                            <div class="form-group">
+                                <label  class="col-sm-4 col-xs-4 control-label" style="color:#fff;">Comment</label>
+                                    <textarea type="text" class="form-control" id="content">
+                                    </textarea>
+                            </div>
+                        </form>
+                        <p class="text-center">
+                            <button id="btn_comment" class="btn_press">Send Comment</button>
+                        </p>      
+                    </div>
+                </div>
+            </div>
 </section>
 <!----------------------SCRIPT-------------------------------->
 <!-- scripts 
