@@ -66,9 +66,6 @@ section{
     vertical-align: middle;
     background: rgba(0,0,0,0.1);
 }
-.form{
-    /*background: rgba(0,0,0,0.3);*/
-}
 .latabla td{
     border: thin solid #fff;
     font-size: 30px;

@@ -71,7 +71,7 @@ function goToSection(_id)
 ///+++++++++++++++++++++++++++++++++++++++GET HISTORIAL AJAX++++++++++++++++++++++++++++++++++++///
 function getHistorial(){
     $.ajax({
-        url:'http://test-ta.herokuapp.com/games'
+        url:'https://test-ta.herokuapp.com/games'
         //en la consola en network se puede visualizar todo lo que se tiene.
     }).done(function(_data){
         //console.log(_data);
@@ -100,7 +100,7 @@ function getSingleGame(_idGame)
 {
     
     $.ajax({
-        url:'http://test-ta.herokuapp.com/games/' + _idGame,
+        url:'https://test-ta.herokuapp.com/games/' + _idGame,
         //:game_id, ?game_id, [game_id], {game_id?} se refiere al id del juego, indican que ese segmento es un parametro. 
         //para obtner el id solo se pasa por parametro 
         type: 'GET'
@@ -113,7 +113,7 @@ function getSingleGame(_idGame)
 function getComments(_idGame)
 {
     $.ajax({
-        url:'http://test-ta.herokuapp.com/games/' + _idGame+'/comments',
+        url:'https://test-ta.herokuapp.com/games/' + _idGame+'/comments',
         type: 'GET'
     }).done(function(_data){
         console.log(_data);
@@ -141,7 +141,7 @@ function drawComments(_datos)
 function sendComment(_idGame,_name,_content)
 {
      $.ajax({
-        url:'http://test-ta.herokuapp.com/games/' + _idGame+'/comments',
+        url:'https://test-ta.herokuapp.com/games/' + _idGame+'/comments',
         type: 'POST',
         data:{comment:{name:_name, content:_content, game_id:_idGame}}
     }).done(function(_data){
