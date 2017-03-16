@@ -3,7 +3,8 @@ $(document).ready(init);
 var turno = 1; 
 var queturno;
 var arregloGato = new Array(9);
-var reset = $('#reset').click(reseting);
+//var turn = $('#turn');
+//console.log(turn);
 var turnoX= 0;
 var turnoO = 0;
 
@@ -12,7 +13,8 @@ function init ()
     var celda= $('.gato');
     //console.log(celda);
     $('#gato').on('click',celda,onClickSpace);
-    
+    $('#reseting').on('click',reseting);
+    //console.log($('#reseting'));
 }
 //combinaciones de jugadas
 function ganaJugador(letra){
@@ -37,22 +39,16 @@ function onClickSpace(evento)
     var celdas= evento.target;
     var idceldas =  evento.target.id;
     var celdaAMarcar = idceldas[1]-1;
-    //alert(celdaAMarcar.value());
+    //alert(celdaAMarcar);
     
     queturno = turno%2;
-    turnoX=queturno;
     //TURNO X, turnos impares;
     if(queturno==1)
         {
-            if(celdaAMarcar)
             celdas.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>';
             arregloGato[celdaAMarcar] = "X";
-            //console.log(queturno);
-            
-            //$('#count_game1').txt(turnXX);
-            //var player1=$('#gamer_1').val();
             ganaJugador("X");
-            
+            turnoX++;
             //$('#gaming1').val()=turnoX;
             
         }
@@ -61,16 +57,11 @@ function onClickSpace(evento)
         {
             celdas.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive" style="background:#fff;"></span>';
             arregloGato[celdaAMarcar] = "O";
-            //turnoO++;
-            //$('#count_game2').text(turnoO);
-            //var player2=$('#gamer_2').val();
             ganaJugador("O");
-            
-            //ganaJugador("O");
-            
+            turnoO++;
             //$('#gaming2').val()=turnoO;
         }
-    console.log(turno,queturno,arregloGato);
+    console.log(arregloGato);
     if(turno==9)
     {
          $('#respuesta').html('<span>Es un empate</span>');;
@@ -79,11 +70,12 @@ function onClickSpace(evento)
     }
     else{
         turno++;
-        console.log(turno);
     }
     
 }
 function reseting(){
-    arregloGato= "";
-    
+    var cat =$('#gato td');
+    //console.log(cat);
+    cat.empty();
+    arregloGato.length = 0;
 }
