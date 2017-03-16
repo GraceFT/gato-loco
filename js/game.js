@@ -1,7 +1,6 @@
 $(document).ready(init);
 
 var turno = 1; 
-var queturno;
 var arregloGato = new Array(9);
 var player1=$('#gamer1').val();
 var player2=$('#gamer2').val();
@@ -12,36 +11,29 @@ var celda= $('.gato');
 
 $.each(celda,function(){
         $(this).click(onClickSpace);
-         //alert("ihii");
     });
 
 function init ()
 {  
     $('#reseting').on('click',reseting);
-    $('#turn').html('<span>Player turn: '+player1+'</span>');
-    $('#count_game1').text(turnoX);
-    $('#count_game2').text(turnoO);
-    $('#gaming1').text("Movements's " + player1);
-    $('#gaming2').text("Movements's " + player2);
 }
-function onClickSpace(evento){
-    
-}
+
 function onClickSpace(evento)
 {
     var idceldas =  evento.target.id;
     celdaAMarcar = idceldas[1]-1;
     //alert(celdaAMarcar);
     
-    queturno = turno%2;
     //TURNO X, turnos impares;
-    if(queturno==1){
+    if(turno==1){
         if(arregloGato[celdaAMarcar]==null){
             arregloGato[celdaAMarcar] = "X";
-            turnoX++;
+            turnoX+1;
+            //console.log(player1);
+             $('#turn').text(player1);
+            ganaJugador("O");
             this.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>';
             $('#count_game1').text(turnoX);
-            
             ganaJugador("X");
             turno=2;
                 //$('#gaming1').val()=turnoX; 
@@ -52,17 +44,17 @@ function onClickSpace(evento)
         {
             if(arregloGato[celdaAMarcar]==null){
             arregloGato[celdaAMarcar] = "O";
-            turnoO++;
+            turnoO+1;
             this.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive" style="background:#fff;"></span>';
-            $('#count_game1').text(turnoX);
-            $('#turn').html('<span>Player turn: '+player1+'</span>');
+            $('#count_game2').text(turnoX);
+            $('#turn').text(player2);
             ganaJugador("O");
             turno=1;
             //$('#gaming2').val()=turnoO;  
             }
         }
-    console.log(queturno,turno,arregloGato);
-    if(turno==9)
+    console.log(turno,arregloGato);
+    if(turno>9)
     {
          $('#respuesta').html('<span>Es un empate</span>');
     }
@@ -89,5 +81,7 @@ function reseting(){
     //console.log(cat);
     cat.empty();
     arregloGato.length = 0;
-    ganaJugador();
+    var ganador= $('#respuesta');
+    ganador.empty();
+    turno=1;
 }

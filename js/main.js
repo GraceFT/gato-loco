@@ -48,7 +48,9 @@ function onClickGamer()
     validateName();
     validateNames2();
     if(validateName() && validateNames2){
-         goToSection('game');
+    $('#gaming1').text("Movements's " + $('#gamer1').val());
+    $('#gaming2').text("Movements's " + $('#gamer2').val());
+        goToSection('game');
     } 
 }
 
