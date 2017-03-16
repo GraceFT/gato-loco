@@ -62,7 +62,7 @@ function onClickSpace(evento)
     //TURNO X, turnos pares;
     else 
         {
-            celdas.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive"></span>';
+            celdas.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive" style="background:#fff;"></span>';
             arregloGato[celdaAMarcar] = "O";
             ganaJugador("O");
             turnoO++;

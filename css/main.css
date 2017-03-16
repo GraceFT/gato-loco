@@ -1,6 +1,6 @@
-/*{
+*{
     outline: 1px solid rgba(0,255,0,0.5);
-}*/
+}
 header{
     position: relative;
     z-index: 100;
@@ -94,9 +94,6 @@ section{
     vertical-align: middle;
     display: table-cell;
     padding: 200px 0;
-}
-#respuesta{
-    margin: 100px 0;
 }
 /*laprube*/
 .elbody{

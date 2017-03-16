@@ -24,7 +24,7 @@
                             <span class="icon-bar"></span>
                         </button>
                     </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" aria-expanded="false">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a id="btn_initial">Inicio</a></li>
                             <li><a >Historial</a></li>
@@ -77,9 +77,7 @@
 	<div class="content">
 		<div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-8 col-xs-8" cellspacing="0">
-                   <h2>Turno de<span id="turn">Mi</span></h2>
-                    <br>
+                <div class="col-md-9 col-sm-12 col-xs-12" cellspacing="0">
                     <table id="gato" class="latabla">
                         <tr>
                             <td id="c1" class="gato"></td>
@@ -97,19 +95,17 @@
                             <td id="c9" class="gato"></td>
                         </tr>
                     </table>
+                    <p>TURNOS</p>
                     <button class="btn btn-default" id="reset">RESET</button>      
                 </div>
             
-                <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="col-md-3 col-sm-12 col-xs-12 ">
                    <h2>PLAYERS</h2>
                     <ul class="list-unstyled">
-                        <li>Nombre1<span id="gaming1"></span></li>
-                        <br>   
+                        <li>Nombre1<span id="gaming1"></span></li>  
                         <li>Nombre2<span id="gaming2"></span></li>
-                        
                     </ul>
-                     <div id="respuesta"></div>
-                    <button class="btn" id="btn_story">STORY</button>   
+                     <div id="respuesta"></div>   
                 </div> 
             </div>
 		</div>
