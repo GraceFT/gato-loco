@@ -48,8 +48,6 @@ function onClickGamer()
     validateName();
     validateNames2();
     if(validateName() && validateNames2){
-        $('#gaming1').text("Movements's " + $('#gamer1').val());
-        $('#gaming2').text("Movements's " + $('#gamer2').val());
          goToSection('game');
     } 
 }
@@ -89,7 +87,7 @@ function drawHistory(_datos)
     var list=$('#list_games');
     for(var i in _datos){
         //console.log(_datos[i].winner_player);
-        var html = '<div class="col-md-11 col-sm-11 col-xs-11 list_games" data-idgame="'+ _datos[i].id+'" class="list-group-item"><span>Ganador: '+ _datos[i].winner_player+' le gano a '+ _datos[i].loser_player+' en '+ _datos[i].number_of_turns_to_win+'</span><button class=" btn btn_ver pull-right">See</button><div>';
+        var html = '<li data-idgame="'+ _datos[i].id+'" class="list-group-item"><span>'+ _datos[i].winner_player+' le gano a '+ _datos[i].loser_player+' en '+ _datos[i].number_of_turns_to_win+' movimientos</span><br><button class=" btn btn_ver">See</button><li>';
         list.append(html); 
         //data-xx(para almacenar los datos que se necesitan);
         //dat-idgame
@@ -130,7 +128,7 @@ function drawComments(_datos)
     list.empty();
     for(var i in _datos){
         //console.log(_datos[i].winner_player);
-        var html = '<li class="list-group-items">'+ _datos[i].name+' dice:<p> '+ _datos[i].content+'</p><li>';
+        var html = '<li class="list-group-items"><span style="font-size:20px;">'+ _datos[i].name+'</span> dice:<p> '+ _datos[i].content+'</p><li>';
         list.append(html);
         //data-xx(para almacenar los datos que se necesitan);
         //dat-idgame

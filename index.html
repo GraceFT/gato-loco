@@ -80,6 +80,7 @@
 		<div class="container">
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12" cellspacing="0">
+                   
                     <table id="gato" class="latabla">
                         <tr>
                             <td id="c1" class="gato"></td>
@@ -97,12 +98,10 @@
                             <td id="c9" class="gato"></td>
                         </tr>
                     </table>
-                    <p>TURNOS</p>
                     <button class="btn btn-default" id="reseting">RESET</button>      
                 </div>
             
                 <div class="col-md-3 col-sm-12 col-xs-12 ">
-                   <div>Player turn <span id="turn"></span></div>
                     <ul class="list-unstyled">
                         <li id="gaming1"><span id='count_game1'></span></li>  
                         <li id="gaming2"><span id='count_game2'></span></li>
@@ -118,9 +117,7 @@
 	<div class="content">
 		<div class="container">
             <h2>Comments</h2>
-		    <div class="row">
-			    <div id="list_games" class="text-center"></div> 
-		    </div>
+			    <ul id="list_games" class="text-center list-group list-unstyled"></ul>
 		</div>
 	</div>
 </section>
@@ -129,23 +126,21 @@
 <section  id="story_detail">
     <div class="content">
         <div class="container">
-            <ul id="list_comments" class="list-unstyled"></ul>
+            <ul id="list_comments" class="list-unstyled list-group"></ul>
                <h3>SEND YOUR COMMENTS</h3>
-                   <div class="col-md-6 col-sm-8 col-xs-8 col-md-offset-3 col-sm-offset-2 col-xs-offset-2 formulario">
+                   <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 formulario">
                         <form class="form">
                             <div class="form-group">
-                                <label class="col-sm-6 col-xs-6 control-label" style="color:#fff;">Name</label>
+                                <label class="control-label" style="color:#fff;">Name</label>
                                     <input type="text" class="form-control" id="name" placeholder="Name">
                              </div>
                             <div class="form-group">
-                                <label  class="col-sm-6 col-xs-6 control-label" style="color:#fff;">Comment</label>
-                                    <textarea type="text" class="form-control" id="content">
+                                <label  class=" control-label" style="color:#fff;">Comment</label>
+                                    <textarea type="text" class="form-control" id="content" placeholder="comment">
                                     </textarea>
                             </div>
                         </form>
-                        <p class="text-center">
-                            <button id="btn_comment" class="btn_press">Send Comment</button>
-                        </p>      
+                        <button id="btn_comment" class="btn_press">Send Comment</button>     
                     </div>
                 </div>
             </div>
