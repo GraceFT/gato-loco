@@ -34,10 +34,10 @@ function ganaJugador(letra){
 }
 function onClickSpace(evento)
 {
-    var celdas= $(this);
-    var idceldas =  celdas.attr('id');
+    var celdas= evento.target;
+    var idceldas =  evento.target.id;
     var celdaAMarcar = idceldas[1]-1;
-    alert(celdaAMarcar);
+    //alert(celdaAMarcar.value());
     
     queturno = turno%2;
     turnoX=queturno;
@@ -47,7 +47,7 @@ function onClickSpace(evento)
             if(celdaAMarcar)
             celdas.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>';
             arregloGato[celdaAMarcar] = "X";
-            console.log(queturno);
+            //console.log(queturno);
             
             //$('#count_game1').txt(turnXX);
             //var player1=$('#gamer_1').val();
