@@ -3,8 +3,6 @@ $(document).ready(init);
 var turno = 1; 
 var queturno;
 var arregloGato = new Array(9);
-//var turn = $('#turn');
-//console.log(turn);
 var reset = $('#reset').click(reseting);
 var turnoX= 0;
 var turnoO = 0;
@@ -36,26 +34,25 @@ function ganaJugador(letra){
 }
 function onClickSpace(evento)
 {
-    //alert(evento.target.id);
-    //alert(idceldas.length);//numero de caracteres que tiene el id;
-    //alert(idceldas[1]);
-    //posicion a marcar el -1 es porque las posiciones comienzan en cero 
-    
-    var celdas= evento.target;
-    //console.log(celda);
-    var idceldas =  evento.target.id;
-    
+    var celdas= $(this);
+    var idceldas =  celdas.attr('id');
     var celdaAMarcar = idceldas[1]-1;
-    //alert(celdaAMarcar);
+    alert(celdaAMarcar);
     
     queturno = turno%2;
+    turnoX=queturno;
     //TURNO X, turnos impares;
     if(queturno==1)
         {
+            if(celdaAMarcar)
             celdas.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>';
             arregloGato[celdaAMarcar] = "X";
+            console.log(queturno);
+            
+            //$('#count_game1').txt(turnXX);
+            //var player1=$('#gamer_1').val();
             ganaJugador("X");
-            turnoX++;
+            
             //$('#gaming1').val()=turnoX;
             
         }
@@ -64,8 +61,13 @@ function onClickSpace(evento)
         {
             celdas.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive" style="background:#fff;"></span>';
             arregloGato[celdaAMarcar] = "O";
+            //turnoO++;
+            //$('#count_game2').text(turnoO);
+            //var player2=$('#gamer_2').val();
             ganaJugador("O");
-            turnoO++;
+            
+            //ganaJugador("O");
+            
             //$('#gaming2').val()=turnoO;
         }
     console.log(turno,queturno,arregloGato);
@@ -77,6 +79,7 @@ function onClickSpace(evento)
     }
     else{
         turno++;
+        console.log(turno);
     }
     
 }
