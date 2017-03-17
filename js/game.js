@@ -91,4 +91,9 @@ function reseting(){
     var ganador= $('#respuesta');
     ganador.empty();
     turno=1;
+    turnoX= 0;
+    turnoO = 0;
+     $('#countgame1').empty();
+     $('#countgame2').empty();
+    
 }
