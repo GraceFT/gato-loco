@@ -10,6 +10,7 @@ header{
 }
 h3,h2,h4{
     color: #fff;
+    text-shadow: 1px 1px #f5f5f5;
 }
 #particles-js{
 width: 100%;
@@ -29,8 +30,8 @@ background-size: cover;
 #list_comments li:nth-child(1){
     margin-top: 60px;
 }
-.players{
-   color: #fff;
+#eldiv{
+   background:rgba(7,50,140,0.3);
 }
 .welcome{
     background: url(../img/monstercat.gif);
@@ -87,11 +88,17 @@ section{
     background: rgba(0,0,0,0.5);
     border-radius: 10px;
     padding: 15px;
+    border: 1px solid rgba(7,50,140,0.3);
+    border-top: none;
 }
 .content{
     display: table-cell;
     vertical-align: middle;
     background: rgba(0,0,0,0.1);
+}
+.latabla{
+    box-shadow: 10px 10px rgba(7,50,140,0.3);
+    margin: auto;
 }
 .latabla td{
     border: thin solid #fff;
@@ -117,9 +124,6 @@ section{
     background-color: rgba(7,50,140,0.3);
     color: #fff;
 }
-.latabla{
-    margin: auto;
-}
 .gamers{
     display: table;
 }
@@ -128,10 +132,11 @@ section{
     display: table-cell;
     padding: 200px 0;
 }
-/*laprube*/
+/*body*/
 .elbody{
     background: url(../img/monstercat___star_wars_by_petirep-d9hbtqn.png);
-     background-size: cover;
+    background-color: #000;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -139,4 +144,27 @@ section{
     height: 100%;
     font-family: 'Exo 2', sans-serif;
     color: #fff;
+}
+/*queries*/
+@media screen and (max-width: 767px) {
+    .latabla td {
+       width:90px;
+        height:90px;
+    }
+    #respuesta{
+        margin-bottom: 15px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .latabla h3{
+        margin-top:50px;
+    }
+    .latabla td {
+       width:70px;
+        height:70px;
+    }
+    #respuesta{
+        margin-bottom: 10px;
+        font-size: 17px;
+    }
 }

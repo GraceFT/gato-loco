@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="shortcut icon" href="img/favicon%20(2).ico">
+    <link rel="stylesheet" href="css/animate.css">
 </head>
 <body class="elbody text-center">
 <!-------------------EL HEADER----------------------------------------->
@@ -53,7 +54,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label" style="color:#fff;">Player 1 <span><img src="img/blackcat.png" alt="img_blackcat" width="30px" height="30px"></span></label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="gamer1" placeholder="Name">
+                                <input type="text" class="form-control" id="gamer1" placeholder="Name" autofocus>
                                 <div id="avise"></div>
                             </div>
                         </div>
@@ -62,7 +63,6 @@
                             <label  class="col-sm-4 control-label" style="color:#fff;">Player 2 <span style="background:white;"><img src="img/whitecat2.png" alt="img_whitecat" width="30px" height="30px"></span></label>
                             <div class="col-sm-4">
                               <input type="text" class="form-control" id="gamer2" placeholder="Name">
-                                <div id="avise"></div>
                               <div id="avise2"></div>
                             </div>
                         </div>
@@ -80,10 +80,9 @@
 	<div class="content">
 		<div class="container">
             <div class="row">
-                <div class="col-md-9 col-sm-12 col-xs-12" cellspacing="0">
-                   
+                <div class="col-md-8 col-sm-9 col-xs-12" cellspacing="0">
                     <table id="gato" class="latabla">
-                       <h3>Player turn: <span id="turnos"></span></h3>
+                       <h3 style="text-decoration:underline;">Player turn: <span id="turnos"></span></h3>
                         <tr>
                             <td id="c1" class="gato"></td>
                             <td id="c2" class="gato"></td>
@@ -102,16 +101,14 @@
                     </table>
                     <button class="btn_press" id="reseting">RESET</button>      
                 </div>
-                <div class="col-md-3 col-sm-12 col-xs-12 ">
-                  <br>
-                   <p>PLAYERS!</p>
+                <br>
+                <div class="col-md-4 col-sm-3 col-xs-12" id="eldiv">
+                   <h3>PLAYERS!</h3>
                     <ul class="list-unstyled">
-                        <li id="gaming1"></li>
-                        <li><span id='countgame1'></span></li>  
-                        <li id="gaming2"></li>
-                        <li><span id='countgame2'></span></li>
+                        <li id="gaming1"></li><span id='countgame1'></span>  
+                        <li id="gaming2"></li><span id='countgame2'></span>
                     </ul>
-                     <div id="respuesta" style="font-size:25px"></div>   
+                     <div id="respuesta" style="font-size:23px;text-shadow:2px 2px #000;color:#fff;"></div> 
                 </div> 
             </div>
 		</div>

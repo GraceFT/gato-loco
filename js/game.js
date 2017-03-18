@@ -4,10 +4,9 @@ var turno = 1;
 var arregloGato = new Array(9);
 var turnoX= 0;
 var turnoO = 0;
-var  celdaAMarcar;
+var celdaAMarcar;
 var celda= $('.gato');
 var queturno;
-
 
 $.each(celda,function(){
         $(this).click(onClickSpace);
@@ -24,15 +23,17 @@ function onClickSpace(evento)
     celdaAMarcar = idceldas[1]-1;
     //alert(celdaAMarcar);
     queturno=turno%2;
+    var gamer1=$('#gamer1').val();
+    var gamer2=$('#gamer2').val();
     //TURNO X, turnos impares;
     if(queturno==1){
         if(arregloGato[celdaAMarcar]==null){
             arregloGato[celdaAMarcar] = "X";
-            this.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive"></span>';
-             $('#turnos').text($('#gamer1').val());
-            ganaJugador("X");
+            this.innerHTML= '<span><img src="img/blackcat.png" alt="" class="img-responsive animated flipInX"></span>';
+             $('#turnos').text(gamer1);
             turnoX++;
             $('#countgame1').text(turnoX);
+             ganaJugador("X",gamer1,gamer2);
             //turno=2; 
             }  
         }
@@ -41,11 +42,11 @@ function onClickSpace(evento)
         {
             if(arregloGato[celdaAMarcar]==null){
             arregloGato[celdaAMarcar] = "O";
-            this.innerHTML = '<span><img src="img/whitecat.png" alt="" class="img-responsive" style="background:#fff;"></span>';
-            $('#turnos').text($('#gamer2').val());
-            ganaJugador("0");
+            this.innerHTML="<span><img src='img/whitecat.png' class='img-responsive animated flipInX' style='background:#fff;'></span>";
+            $('#turnos').text(gamer2);
             turnoO++;
             $('#countgame2').text(turnoO);
+            ganaJugador("O",gamer2,gamer1);
             //turno=1;
             }
         }
@@ -59,9 +60,9 @@ function onClickSpace(evento)
     
 }
 
-function ganaJugador(letra){
-    var gamer1=$('#gamer1').val();
-    var gamer2=$('#gamer2').val();
+function ganaJugador(letra,_gamerw,_gamerl){
+
+
     if(
     (arregloGato[0]==letra && arregloGato[1]==letra && arregloGato[2]==letra)|| 
     (arregloGato[3]==letra && arregloGato[4]==letra && arregloGato[5]==letra)|| 
@@ -75,9 +76,20 @@ function ganaJugador(letra){
         {
             
             if(letra=="X"){
-                $('#respuesta').html('Jugador <span style="">'+ gamer1 +'</span> GANA');
-            }else{
-                $('#respuesta').html('Jugador <span style="">'+ gamer2 +'</span> GANA');
+                $('#respuesta').html('Player <span>'+ _gamerw +'</span> win');
+                $('#eldiv').append('<button class="btn_press" id="send_gaming">Send your game</button>');
+                var contar=$('#countgame1').text();
+                localStorage.setItem("winner",_gamerw);
+                localStorage.setItem("loser",_gamerl);
+                localStorage.setItem("number",contar);
+                
+            }else {
+                $('#respuesta').html('Player <span>'+ _gamerw +'</span> win');
+                $('#eldiv').append('<button class="btn_press" id="send_gaming">Send your game</button>');
+                var contar=$('#countgame2').text();
+                localStorage.setItem("winner",_gamerw);
+                localStorage.setItem("loser",_gamerl);
+                localStorage.setItem("number",contar);
             }
             
         }
@@ -85,15 +97,13 @@ function ganaJugador(letra){
 
 function reseting(){
     var cat =$('.gato');
-    //console.log(cat);
     cat.empty();
     arregloGato.length = 0;
-    var ganador= $('#respuesta');
-    ganador.empty();
     turno=1;
     turnoX= 0;
     turnoO = 0;
      $('#countgame1').empty();
      $('#countgame2').empty();
-    
+    $('#respuesta').empty();
+    $('#eldiv button').remove();
 }

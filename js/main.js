@@ -11,6 +11,7 @@ function init()
     $('#list_games').on('click','.btn', onClickBtnItemStory);
     $('#btn_comment').click(onClickBtnComment);
     $('#btn_initial').click(onClickBackInit);
+    $('#send_gaming').click(sendGaming);
     //TweenMax.to('#btn-saludo', 2, {opacity:0, ease: Bonce.easeOut});
     //primer parametro es el identificador de donde quiero hacer mi animacion
     //elemento css
@@ -66,7 +67,7 @@ function goToSection(_id)
     currentSection.removeClass('visible');//display show
     var nextSection = $('#'+_id);
     nextSection.addClass('visible'); //display block
-    //TweenMax.from(nextSection,0.5,{scale:0.5, opacity:0, ease:Elastic.easeOut})
+    TweenMax.from(nextSection, 1.5, {scale: 0.2, opacity: 0, ease: Elastic.easeOut});
     currentSection=nextSection;
     //se le va a plicar a todas las pantallas
 }
@@ -137,6 +138,21 @@ function drawComments(_datos)
     }
     //try{}
     //error controlado
+}
+///+++++++++++++++++++++++SENDING GAME++++++++++++++++++++++++++++++++++++///
+function sendGaming()
+{
+    var winner=localStorage.getItem("winner");
+    var loser=localStorage.getItem("loser");
+    var numbGame=localStorage.getItem("number");
+     $.ajax({
+        url:'https://test-ta.herokuapp.com/games',
+        type: 'POST',
+        data:{game:{winner_player:winner, loser_player:loser, number_of_turns_to_win:numbGame}}
+    }).done(function(_data){
+        console.log(_data);
+        alert("se envio al historial");
+    });
 }
 
 ///+++++++++++++++++++++++SENDING COMMENTS/SEPARATE FUNCTION++++++++++++++++++++++++++++++++++++///
